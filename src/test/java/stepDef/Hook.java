@@ -4,6 +4,7 @@ import base.setup;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.BeforeAll;
+import org.testng.util.Strings;
 import testData.userData;
 
 
@@ -15,31 +16,26 @@ public class Hook extends setup {
     public static String browser = System.getProperty("browser");
     public static String testEnv = System.getProperty("env");
 
-    @BeforeAll
-    public void createTestdata(){
-        userData ud =new userData();
-        ud.createFakeData();
-    }
+
     @Before
     public void startTest(){
         //This switch case will see what test env to run in and select the variable values accordingly
         //If there is no values given it will choose the default values in the switch case
+        if (Strings.isNullOrEmpty(browser)){
+            browser = "ch";
+        }
+        if (Strings.isNullOrEmpty(testEnv)){
+            testEnv = "qa";
+        }
         switch (testEnv){
             case "qa":
-                url = "http://qa.taltektc.com";
-
+                url = "https://qa.taltektc.com";
                 break;
             case "stage":
-                url = "http://stage.taltektc.com";
-
+                url = "https://stage.taltektc.com";
                 break;
             case "prod":
-                url = "http://prod.taltektc.com";
-
-                break;
-            default:
-                url = "http://qa.taltektc.com";
-                browser = "ch";
+                url = "https://prod.taltektc.com";
                 break;
         }
 
@@ -50,11 +46,11 @@ public class Hook extends setup {
         driver.get(url);
     }
 
-    @After
-    public void tearDown(){
-
-        driver.quit();
-    }
+//    @After
+//    public void tearDown(){
+//
+//        driver.quit();
+//    }
 
 
 

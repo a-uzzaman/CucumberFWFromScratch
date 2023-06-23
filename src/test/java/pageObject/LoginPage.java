@@ -14,7 +14,7 @@ public class LoginPage extends setup{
         setup.driver = driver;
     }
 
-    @FindBy(linkText = "Create new account")
+    @FindBy(linkText = "Create New Account")
     public WebElement CreateAccountLink;
 
     public void verifyTitle(){

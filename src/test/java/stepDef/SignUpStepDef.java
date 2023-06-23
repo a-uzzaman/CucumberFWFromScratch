@@ -22,7 +22,9 @@ public class SignUpStepDef extends setup {
 
     @When("I enter user data")
     public void iEnterUserData() {
-        sp.fillForm(ud.getFirstName(),ud.getLastName(),ud.getEmail(),ud.getPassword(),ud.getConfirmPassword(),ud.getMonth());
+        ud.createFakeData();
+        System.out.println("The first name is "+ud.getFirstName()+"----------------------");
+        sp.fillForm(ud.getFirstName(),ud.getLastName(),ud.getEmail(),ud.getPassword(),ud.getConfirmPassword());
     }
 
     @And("Submit to create account")

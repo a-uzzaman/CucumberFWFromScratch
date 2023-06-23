@@ -40,14 +40,14 @@ public class SignUpPage extends setup {
     @FindBy(xpath="//button[@type ='submit']")
     public WebElement submitButton;
 
-    public void fillForm(String firstName,String lastName,String email,String Password,String ConfirmPassword,String month){
+    public void fillForm(String firstName,String lastName,String email,String Password,String ConfirmPassword){
         firstNameLoc.sendKeys(firstName);
         lastNameLoc.sendKeys(lastName);
         emailLoc.sendKeys(email);
         password.sendKeys(Password);
         confirmPassword.sendKeys(ConfirmPassword);
-        Select sMonth = new Select(DOBMonth);
-        sMonth.selectByValue(month);
+//        Select sMonth = new Select(DOBMonth);
+//        sMonth.selectByValue(month);
     }
 
     public void verifyTitle(){
