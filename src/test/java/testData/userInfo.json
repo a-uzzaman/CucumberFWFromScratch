@@ -1,0 +1,14 @@
+{
+  "firstName" : "Jhon",
+  "lastName" : "Doe",
+  "email"     : "jhon.1doe21334@gmail.com",
+  "password"  : "123456",
+  "confirmPassword"  : "123456",
+  "dob"       : {
+    "year"      : 2013,
+    "month"     : 12,
+    "day"       : 31
+  },
+  "gender"    : "male",
+  "agree"     : true
+}

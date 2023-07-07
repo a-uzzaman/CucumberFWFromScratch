@@ -1,5 +1,11 @@
 package stepDef;
 
+import java.io.IOException;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.ParseException;
+
+import testData.jsonParser;
 import base.setup;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -10,7 +16,7 @@ import pageObject.SignUpPage;
 import testData.userData;
 
 public class SignUpStepDef extends setup {
-
+    jsonParser jsparser = new jsonParser();
     LoginPage lp = new LoginPage(driver);
     SignUpPage sp = new SignUpPage(driver);
 
@@ -21,10 +27,11 @@ public class SignUpStepDef extends setup {
     }
 
     @When("I enter user data")
-    public void iEnterUserData() {
+    public void iEnterUserData() throws IOException, ParseException {
         ud.createFakeData();
+        JSONObject jobj= jsonParser.readJsonFile("C:/Users/ashif/OneDrive/Documents/GitHub/cucumberBDD2022/src/test/java/TestData/userInfo.json");
         System.out.println("The first name is "+ud.getFirstName()+"----------------------");
-        sp.fillForm(ud.getFirstName(),ud.getLastName(),ud.getEmail(),ud.getPassword(),ud.getConfirmPassword());
+        sp.fillForm(jsonParser.getValueByKey(jobj,"firstName"),jsonParser.getValueByKey(jobj,"lastName"),"",ud.getPassword(),ud.getConfirmPassword());
     }
 
     @And("Submit to create account")
