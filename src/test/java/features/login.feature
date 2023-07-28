@@ -4,12 +4,12 @@ Feature: Title of your feature
 
   @tag1
   Scenario: Title of your scenario
-    Given I want to write a step with precondition
-    And some other precondition
-    When I complete action
-    And some other action
-    And yet another action
-    Then I validate the outcomes
+    Given I want to write a step with preconditionasdasdas
+    And some other preconditiondasdasdasd
+    When I complete actionasdasdasdas
+    And some other actionasdasdasd
+    And yet another actionasdasedasd
+    Then I validate the outcomessdasdasdasdasdasdasdas
     And check more 
 
   @tag2
